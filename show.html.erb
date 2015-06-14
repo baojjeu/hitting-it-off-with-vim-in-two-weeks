@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" />
+<div class="topic text-center">
+  <h1><%= @project.title %></h1>
+</div>
+
+<div class="container" id="activitycontainer">
+  <div class="row">
+    <div class="col-md-7 col-lg-8">
+      <div class="row borderbox">
+        <div class="row info_bar">
+          <%= render 'projects/show_nav_purchase' if @project.purchase? %>
+          <%= render 'projects/show_nav' if @project.preorder? %>
+        </div>
+
+        <div class="textblock paddingbox">
+          <%= render "#{controller_name}/#{action_name}" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-5 col-lg-4">
+
+      <!-- sidebar -->
+      <%= render 'projects/sidebar' %>
+
+        <%= link_to  new_project_preorder_path(@project), data: { fancybox_width: 500 }, class: 'fancybox white' do %>
+        <div class="form-button text-center" style='margin-top:10px;'>
+          企業客製化方案
+        </div>
+        <% end %>
+
+      <%= render 'projects/rewards' if @project.purchase? %>
+    </div>
+  </div>
+</div>
+
+<a href=".plan_date" class="page-scroll back-to-top">
+  <div>我要購買</div>
+</a>
+
