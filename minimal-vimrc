@@ -1,0 +1,45 @@
+set nocompatible                " choose no compatibility with legacy vi
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+set cursorline
+set clipboard=unnamed " make Vim use the system clipboard as the default register
+" set linespace=3
+
+"" Whitespace
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+" cancel search highlight
+nnoremap <C-L> :nohls<CR><C-L>
+
+" make Vim quiet
+set visualbell
+
+" numbers
+set number
+set numberwidth=5
+set relativenumber
+
+" Splits
+set splitbelow
+set splitright
+
+" vundle
+syntax enable
+filetype plugin indent on
+
+" Trim whitespace
+autocmd BufWritePre * :%s/\s\+$//e " trim whitespace when saving
+
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
